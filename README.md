@@ -1,153 +1,145 @@
 # 🌋 Global Solution 2025 – Simulação de Monitoramento de Vulcão com ESP32 e Python
 
-## 👥 Nomes:
-- Felipe Menezes — RM557891  
-- Flavia Bocchino — RM564213  
-- Pedro Zani — RM564956
+## 👥 Integrantes
+- Felipe Menezes (RM557891)  
+- Flavia Bocchino (RM564213)  
+- Pedro Zani (RM564956)
+
+**Curso**: Inteligência Artificial – FIAP  
+**Tema**: Desastres Naturais – Monitoramento de Vulcões  
+**Data**: Junho de 2025 — São Paulo, Brasil  
 
 ---
 
-## 🌍 Evento Natural Escolhido
+## 📖 Introdução
 
-**Erupção do vulcão Eyjafjallajökull**  
-📍 Local: Islândia  
-📆 Ano analisado: 2010  
-🔗 Fonte: [disasterscharter.org](https://disasterscharter.org/web/guest/activations/-/article/activation-257)
+Erupções vulcânicas representam um risco à saúde humana, causam impactos ambientais e prejuízos econômicos. A erupção do vulcão Eyjafjallajökull, na Islândia, em 2010, é um exemplo clássico: ela interrompeu voos em toda a Europa devido à grande emissão de fumaça e cinzas.
 
----
-
-## 🧱 Construção da Solução e MVP (SUMÁRIO)
-
-1. Etapa 1: Definir a Lógica da Solução (baseada em sensores)  
-2. Etapa 2: ESP32 + Sensor (simulado no Wokwi)  
-3. Etapa 3: Análise em Python (Google Colab ou local)  
-4. Etapa 4: Organizar o Repositório no GitHub  
-5. Etapa 5: Montar o PDF final (entregável obrigatório)  
-6. Etapa 6: Gravar o vídeo (até 5 minutos)
+Mas como prever uma erupção?  
+Cientistas monitoram dados como temperatura, pressão atmosférica e emissão de gases. Neste projeto, simulamos esse processo com sensores, microcontrolador ESP32 e análise de dados em Python.
 
 ---
 
-## 🧠 ETAPA 1 – O QUE A NOSSA SOLUÇÃO FAZ?
+## 📌 Sumário das Etapas
 
-### 📌 Problema que queremos resolver
-
-Erupções vulcânicas como a que ocorreu na Islândia, em 2010, podem causar:
-- Risco para quem mora perto do vulcão
-- Cancelamento de voos por causa de cinzas no céu
-- Danos ao meio ambiente e à economia
-
-Mas como saber se um vulcão vai entrar em erupção?
-
-### 💡 O que nossa solução propõe
-
-Criamos um sistema inteligente que simula o monitoramento de um vulcão, usando:
-
-1. Sensor conectado a um chip ESP32 (cérebro do sistema)  
-2. Código que mede temperatura e umidade do ar  
-3. Análise em Python para verificar risco de erupção  
-4. Emissão de alerta automático, se necessário  
-5. Geração de gráfico para visualização de dados
+1. **Etapa 1** – Definir a Lógica da Solução  
+2. **Etapa 2** – Simulação no Wokwi (ESP32 + DHT22)  
+3. **Etapa 3** – Análise de Dados em Python (Colab)  
+4. **Etapa 4** – Resultados Esperados  
+5. **Etapa 5** – Organização no GitHub  
+6. **Etapa 6** – Montagem do PDF final  
+7. **Etapa 7** – Referências (links de apoio)  
+8. **Etapa 8** – Evidências Visuais (prints)  
+9. **Etapa Complementar** – Arquitetura da Solução  
+10. **Etapa Complementar** – Circuito e Código ESP32  
+11. **Etapa Complementar** – Lógica de Análise em Python  
+12. **Etapa Final** – Conclusão  
 
 ---
 
-## ⚙️ Como o sistema funciona – Passo a passo
+## 🔧 Etapa 1 – Lógica da Solução
 
-| Etapa | O que acontece |
-|-------|----------------|
-| 1️⃣ | O sensor mede a temperatura e a umidade do ar próximo ao vulcão |
-| 2️⃣ | O ESP32 envia essas informações para o código |
-| 3️⃣ | O código compara os dados com valores de risco |
-| 4️⃣ | Se os dados forem suspeitos, o sistema gera um alerta |
-| 5️⃣ | Um gráfico é gerado para visualização científica |
+- Sensor DHT22 mede temperatura e umidade
+- ESP32 analisa os dados
+- Se `temp > 45°C` **e** `umidade < 20%`, o sistema dispara um **alerta**
+- A lógica segue uma estrutura condicional:  
+  **"Se isso acontecer, então faça aquilo."**
 
 ---
 
-## 🧪 Exemplo simples da lógica
+## 🧪 Etapa 2 – Simulação com ESP32 + DHT22
 
-Critérios simulados:
-- Temperatura > **45°C**
-- Umidade < **20%** (em vez de pressão, pela limitação do sensor)
-
-Se essas condições forem atendidas, o sistema simula um **alerta de risco de erupção**.
-
-Isso representa uma **estrutura condicional**:
-> "Se acontecer isso, então faça aquilo."
+- Utilizamos o Wokwi para montar e testar o circuito
+- Código roda no microcontrolador e analisa os dados a cada 2 segundos
+- Alerta exibido no **monitor serial** em caso de risco
 
 ---
 
-## 🎯 Por que isso é útil?
+## 📊 Etapa 3 – Análise com Python no Colab
 
-Mesmo sendo uma simulação, o sistema:
-
-- Mostra como funcionam sistemas reais de alerta
-- Pode ser adaptado com sensores reais em áreas de risco
-- Mostra como a tecnologia pode **salvar vidas**
-- Usa o sensor DHT22 para medir condições ambientais críticas
+- Criamos dados simulados de temperatura e umidade
+- Aplicamos a mesma lógica do ESP32 em um script Python
+- Geramos gráficos para visualizar os pontos de alerta
+- Exibimos mensagens automáticas em caso de risco
 
 ---
 
-## 🛠️ O que usamos
+## 🎯 Etapa 4 – Resultados Esperados
 
-- **ESP32**: chip microcontrolador que executa o código
-- **DHT22**: sensor digital de temperatura e umidade
-- **Python**: para análise dos dados simulados
-- **Google Colab**: para gerar gráfico e identificar alertas
-- **Gráficos**: ajudam a visualizar os dados
-- **Condições pré-definidas**: base para identificar risco
+O objetivo foi criar uma simulação funcional de um sistema de alerta precoce para erupções vulcânicas.  
+Espera-se que:
 
----
-
-## 🔧 Etapa 2 – Simulação ESP32 + Sensor
-
-Utilizamos o simulador [Wokwi](https://wokwi.com) para montar o circuito ESP32 + DHT22.
-
-- O código coleta dados do sensor a cada 2 segundos
-- Exibe a temperatura e umidade no monitor serial
-- Mostra alertas quando condições críticas são atingidas
-
-🔗 [Acessar simulação no Wokwi](https://wokwi.com/projects/322410731508073042)
+- O ESP32 identifique risco com base nos dados coletados
+- O sistema exiba alertas automáticos no monitor serial
+- O Python reforce a análise com gráficos e mensagens
 
 ---
 
-## 📊 Etapa 3 – Análise em Python (Google Colab)
+## 📁 Etapa 5 – Organização no GitHub
 
-- Geramos dados simulados de temperatura e umidade ao longo do tempo
-- Aplicamos a mesma lógica condicional para identificar alertas
-- Criamos gráfico com faixas de alerta para visualização
+Repositório estruturado com:
 
-🔗 [Abrir notebook no Google Colab](https://colab.research.google.com/drive/10QBsKOzkt7o22LbwNVf5SHl-4IHNIYoG?usp=sharing)
+- Código do ESP32 (`.ino`)
+- Notebook do Colab (`.ipynb`)
+- Gráficos gerados (`.png`)
+- Prints das simulações
+- PDF final e README
 
----
-
-## 🗂️ Estrutura de Pastas no Repositório
-global-solution-vulcao-2025/
-│
-├── ESP32/
-│ ├── esp32-dht22.ino
-│ └── diagram.json (opcional)
-│
-├── Python/
-│ ├── analise_dados_vulcao.ipynb
-│ ├── grafico_alerta_erupcao.png (opcional)
-│ └── dados_simulados.csv (opcional)
-│
-├── Imagens/
-│ ├── print_simulacao_wokwi.png (opcional)
-│ ├── print_grafico_colab.png (opcional)
-│
-├── README.md
-└── Global_Solution_2025.pdf
-
-yaml
-Copy
-Edit
-
+> 🔗 [Repositório GitHub](https://github.com/flahbocchino/global-solution-vulcao-2025)
 
 ---
 
-## 🏁 Conclusão
+## 📄 Etapa 6 – Montagem do PDF
 
-Este projeto simula como **dados ambientais** podem ser usados para prever riscos em tempo real. Ao integrar **sensores físicos e lógica computacional com análise gráfica**, mostramos como a tecnologia pode ser aplicada para prevenir desastres e salvar vidas.
+Documento final com:
+
+- Todas as etapas explicadas
+- Explicações técnicas e acessíveis
+- Imagens, prints e gráficos
+- Referências externas e links
 
 ---
 
+## 🔗 Etapa 7 – Referências
+
+- GitHub:  
+  https://github.com/flahbocchino/global-solution-vulcao-2025  
+- Google Colab:  
+  https://colab.research.google.com/drive/10QBsKOzkt7o22LbwNVf5SHl-4IHNIYoG?usp=sharing  
+- Wokwi:  
+  https://wokwi.com/projects/322410731508073042
+
+---
+
+## 🖼️ Etapa 8 – Evidências Visuais
+
+Acesse a pasta `Imagens/` para visualizar todos os prints organizados e descritos.
+
+---
+
+## 🧩 Etapa Complementar – Arquitetura da Solução
+
+Imagem do circuito montado no Wokwi representa como os componentes se conectam na prática.
+
+---
+
+## 💻 Etapa Complementar – Código ESP32
+
+Trecho `.ino` realiza leitura de temperatura e umidade.  
+Se os valores ultrapassarem os limites críticos, o sistema emite alerta simulado.
+
+---
+
+## 📈 Etapa Complementar – Lógica em Python
+
+O script no Colab analisa os dados, identifica os pontos de risco e gera gráficos ilustrativos.  
+Essa etapa simula o trabalho dos cientistas que analisam medições em tempo real.
+
+---
+
+## ✅ Conclusão
+
+A simulação provou que é possível montar um sistema acessível e funcional para monitorar riscos de erupções vulcânicas.  
+A união entre sensores, microcontrolador e análise em Python criou um **MVP educativo** com grande potencial de adaptação para uso real.
+
+---
